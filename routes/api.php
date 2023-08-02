@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PermisoController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +25,12 @@ Route::prefix("v1/auth")->group(function() {
         Route::post("logout", [AuthController::class, "funSalir"]);
     });
 
+});
+
+// Protejo para autenticación con Sanctum
+Route::middleware('auth:sanctum')->group(function() {
+    // Users
+    Route::apiResource("users", UserController::class);
+    Route::apiResource("permiso", PermisoController::class); // Deberia ser an plural: permisos
+    Route::apiResource("role", RoleController::class);
 });

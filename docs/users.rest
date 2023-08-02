@@ -1,0 +1,36 @@
+### Index
+GET http://127.0.0.1:8000/api/users?limit=10&page=1&q=juan
+Accept: application/json
+Authorization: Bearer 6|Eo3uKsRAf4u1Wkw7Y9Us24tvFkaXfZJxdrTB1osk
+
+### Guardar
+POST http://127.0.0.1:8000/api/users
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "sandra",
+    "email": "sandra@mail.com",
+    "password": "sandra54321"
+}
+
+
+### Mostrar
+GET http://127.0.0.1:8000/api/users/2
+Accept: application/json
+
+
+### Actualizar
+PUT http://127.0.0.1:8000/api/users/3
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "sandraV",
+    "email": "sandra@gmail.com"
+}
+
+
+### Eliminar
+DELETE http://127.0.0.1:8000/api/users/3
+Accept: application/json
